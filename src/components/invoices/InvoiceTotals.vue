@@ -6,10 +6,10 @@
     </tr>
     <tr class="text-right">
         <td colspan="4">
-            VAT
+            IVA
             (<AppEditable :value="invoice.vat_rate | currency"
                           suffix="%"
-                          placeholder="Add VAT"
+                          placeholder="Añadir IVA"
                           @change="updateProp({ vat_rate: $event })"/>)
             <AppError :errors="errors" field="vat_rate"/>
         </td>
@@ -21,7 +21,7 @@
             <AppEditable :value="invoice.currency"
                          :errors="errors"
                          field="currency"
-                         placeholder="Add currency"
+                         placeholder="Añadir Moneda"
                          @change="updateProp({ currency: $event })"/>
         </th>
         <th class="text-nowrap">{{ invoice.total | currency }}</th>

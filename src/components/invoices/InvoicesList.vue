@@ -1,14 +1,14 @@
 <template>
     <div>
-        <div v-if="!invoices" class="col-12">Loading</div>
+        <div v-if="!invoices" class="col-12">Cargando</div>
         <table class="table table--card table-hover" v-else-if="invoices && invoices.length > 0">
             <thead>
             <tr>
                 <th>No.</th>
-                <th>Client</th>
-                <th>Issued at</th>
+                <th>Cliente</th>
+                <th>Emitido el</th>
                 <th>Total</th>
-                <th class="text-right">Status</th>
+                <th class="text-right">Estatus</th>
             </tr>
             </thead>
             <tbody v-if="invoices">
@@ -18,7 +18,7 @@
                 @click="openInvoice(invoice)">
                 <td>{{ invoice.number }}</td>
                 <td>{{ invoice.client ? invoice.client.company_name : '' }}</td>
-                <td>{{ invoice.issued_at | date('D MMM YYYY', 'YYYY-MM-DD') }}</td>
+                <td>{{ invoice.issued_at | date('D MMM, YYYY', 'YYYY-MM-DD') }}</td>
                 <td>
                     {{ invoice.total | currency }}
                     <small v-if="invoice.vat_rate"><br>({{ totalWithVat(invoice) | currency }})</small>

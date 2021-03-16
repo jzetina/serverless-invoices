@@ -50,7 +50,7 @@ export default {
     trackBy: {},
     labelField: {},
     customLabel: {},
-    placeholder: {},
+    placeholder: { default: 'Seleccionar opción' },
     loading: {},
     allowEmpty: { default: false },
     deselectLabel: { default: '' },

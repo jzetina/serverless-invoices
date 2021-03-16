@@ -11,7 +11,7 @@ export default class Invoice extends Model {
     return {
       id: this.attr(() => uuidv4()),
       number: this.attr(''),
-      status: this.attr('draft'),
+      status: this.attr('Borrador'),
       issued_at: this.attr(''),
       due_at: this.attr(''),
       late_fee: this.attr(''),

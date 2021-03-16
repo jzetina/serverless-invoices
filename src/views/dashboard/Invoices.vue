@@ -2,15 +2,15 @@
     <div>
         <div class="row">
             <div class="col-12 mb-4 pr-0 d-flex justify-content-between">
-                <h4 class="mb-0">Invoices</h4>
+                <h4 class="mb-0">Facturas</h4>
                 <div>
-                    <button class="btn btn-sm btn-outline-dark" @click="createNewInvoice">New invoice</button>
+                    <button class="btn btn-sm btn-outline-dark" @click="createNewInvoice">Nueva factura</button>
                     <b-dropdown variant="link" size="sm" no-caret right>
                         <template slot="button-content">
                             <i class="material-icons">more_vert</i>
                         </template>
-                        <b-dropdown-item @click="exportJson">Export</b-dropdown-item>
-                        <b-dropdown-item @click="openImportModal">Import</b-dropdown-item>
+                        <b-dropdown-item @click="exportJson">Exportar</b-dropdown-item>
+                        <b-dropdown-item @click="openImportModal">Importar</b-dropdown-item>
                     </b-dropdown>
                 </div>
             </div>

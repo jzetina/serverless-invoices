@@ -23,7 +23,7 @@
             <div class="row mt-3">
                 <AppEditable :value="invoice.notes"
                              class="col-12"
-                             placeholder="Insert note"
+                             placeholder="Escribe una nota"
                              @change="updateProp({ notes: $event })"/>
             </div>
             <div class="row">
@@ -31,10 +31,10 @@
                     <thead>
                     <tr>
                         <th>Item</th>
-                        <th>Quantity</th>
-                        <th>Unit</th>
-                        <th>Price</th>
-                        <th class="text-right">Sum</th>
+                        <th>Cantidad</th>
+                        <th>Unidades</th>
+                        <th>Precio</th>
+                        <th class="text-right">Suma</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -62,17 +62,17 @@
         </div>
         <BModal id="team_logo_url"
                 centered
-                title="Choose logo"
+                title="Elegir logo"
                 hide-footer
                 size="sm"
                 content-class="bg-base dp--24 text-center">
             <AppFileInput accept="image/*" class="mb-4" @selected="logoSelected"
-                          button-text="Select from files" output-type="base64"/>
-            or
+                          button-text="Selecciona un archivo" output-type="base64"/>
+            o
             <AppInput :value="team.logo_url"
                       class="mt-4"
                       @change="updateTeam({ logo_url: $event })"
-                      label="Insert web url"
+                      label="Escribe la URL de la imagen"
                       field="logo_url"
                       :errors="errors"
                       type="url"/>
@@ -145,7 +145,7 @@ export default {
     logoSelected(payload) {
       this.errors.clear();
       if (payload.size / 1000 > 512) {
-        return this.errors.set({ logo_url: ['Logo has to be under 512kb.'] });
+        return this.errors.set({ logo_url: ['El logo debe ser menor a 512kb.'] });
       }
       this.updateTeam({ logo_url: payload.content });
     },

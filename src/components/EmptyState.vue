@@ -10,7 +10,7 @@
 export default {
   props: {
     content: {
-      default: 'Nothing here yet',
+      default: 'Aún no hay nada',
     },
     align: {
       default: 'center',

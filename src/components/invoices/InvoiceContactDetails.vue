@@ -3,19 +3,19 @@
         <AppEditable :value="invoice.from_website"
                      :errors="errors"
                      field="from_website"
-                     placeholder="Add website"
+                     placeholder="Añadir sitio web"
                      class="break-line"
                      @change="updateProp({ from_website: $event })"/>
         <AppEditable :value="invoice.from_email"
                      :errors="errors"
                      field="from_email"
-                     placeholder="Add email"
+                     placeholder="Añadir correo electrónico"
                      class="break-line"
                      @change="updateProp({ from_email: $event })"/>
         <AppEditable :value="invoice.from_phone"
                      :errors="errors"
                      field="from_phone"
-                     placeholder="Add phone"
+                     placeholder="Añadir teléfono"
                      @change="updateProp({ from_phone: $event })"/>
     </div>
 </template>

@@ -3,20 +3,20 @@
         <strong v-b-modal.bank_details class="editable__item"
                 :class="{'is-invalid': errors && errors.has('bank_account_no')}">
             {{ invoice.bank_account_no }}
-            <span v-if="!invoice.bank_account_no">Add bank account no</span>
+            <span v-if="!invoice.bank_account_no">Añadir número de cuenta bancaria</span>
         </strong>
         <AppError :errors="errors" field="bank_account_no"/>
         <br>
         <span class="editable__item" v-b-modal.bank_details
               :class="{'is-invalid': errors && errors.has('bank_name')}">
             {{ invoice.bank_name }}
-            <span v-if="!invoice.bank_name">Add bank name</span>
+            <span v-if="!invoice.bank_name">Añadir nombre del banco</span>
         </span>
         <AppError :errors="errors" field="bank_name"/>
 
         <BModal id="bank_details"
                 centered
-                title="Choose bank account"
+                title="Elegir cuenta bancaria"
                 hide-footer
                 size="lg"
                 content-class="bg-base dp--24">

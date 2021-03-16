@@ -1,17 +1,17 @@
 <template>
     <div>
         <h3>
-            Invoice
+            Factura
             <AppEditable :value="invoice.number"
                          :errors="errors"
                          field="number"
-                         placeholder="NO."
+                         placeholder="No."
                          @change="updateProp({ number: $event })"/>
         </h3>
-        Issued at: <span class="editable__item" v-b-modal.modal_issued_at>{{ invoice.issued_at | date('D. MMM YYYY', 'YYYY-MM-DD') }}</span>
+        Emitido el: <span class="editable__item" v-b-modal.modal_issued_at>{{ invoice.issued_at | date('D MMM, YYYY', 'YYYY-MM-DD') }}</span>
         <BModal id="modal_issued_at"
                 centered
-                title="Issued at"
+                title="Emitido el"
                 hide-footer
                 size="sm"
                 content-class="bg-base dp--24">
@@ -21,10 +21,10 @@
                            :inline="true"
                            field="issued_at"/>
         </BModal>
-        <br>Due at: <span class="editable__item" v-b-modal.modal_due_at>{{ invoice.due_at | date('D. MMM YYYY', 'YYYY-MM-DD') }}</span>
+        <br>Vence el: <span class="editable__item" v-b-modal.modal_due_at>{{ invoice.due_at | date('D MMM, YYYY', 'YYYY-MM-DD') }}</span>
         <BModal id="modal_due_at"
                 centered
-                title="Due at"
+                title="Vence el"
                 hide-footer
                 size="sm"
                 content-class="bg-base dp--24">
@@ -34,12 +34,12 @@
                            :inline="true"
                            field="due_at"/>
         </BModal>
-        <br>Late fee:
+        <br>Cargo por demora:
         <AppEditable :value="invoice.late_fee | currency"
                      :errors="errors"
                      suffix="%"
                      field="late_fee"
-                     placeholder="Add late fee"
+                     placeholder="Añadir cargo por demora"
                      @change="updateProp({ late_fee: $event })"/>
     </div>
 </template>

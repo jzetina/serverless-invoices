@@ -2,7 +2,7 @@
     <div>
         <div class="row">
             <div class="col-12">
-                <h4>Client</h4>
+                <h4>Cliente</h4>
             </div>
         </div>
 
@@ -18,59 +18,59 @@
                       label="Company reg no" field="company_reg_no" :errors="errors" class="col-sm-5"/>
 
             <div class="col-12">
-                <h5>Invoice Settings</h5>
-                <h6>Address</h6>
+                <h5>Configuración de Facturas</h5>
+                <h6>Dirección</h6>
             </div>
             <AppInput :value="client.company_address" @change="updateProp({ company_address: $event })"
-                      label="Company Address" field="company_address" :errors="errors"
+                      label="Dirección de la Empresa" field="company_address" :errors="errors"
                       class="col-12"/>
             <AppInput :value="client.company_postal_code"
                       @change="updateProp({ company_postal_code: $event })"
-                      label="Postal code" field="company_postal_code" :errors="errors"
+                      label="Código Postal" field="company_postal_code" :errors="errors"
                       class="col-sm-5"/>
             <AppInput :value="client.company_city" @change="updateProp({ company_city: $event })"
-                      label="City" field="company_city" :errors="errors" class="col-sm-7"/>
+                      label="Ciudad" field="company_city" :errors="errors" class="col-sm-7"/>
             <AppInput :value="client.company_county" @change="updateProp({ company_county: $event })"
-                      label="County/State" field="company_county" :errors="errors" class="col-sm-6"/>
+                      label="Estado" field="company_county" :errors="errors" class="col-sm-6"/>
             <AppInput :value="client.company_country" @change="updateProp({ company_country: $event })"
-                      label="Country" field="company_country" :errors="errors" class="col-sm-6"/>
+                      label="País" field="company_country" :errors="errors" class="col-sm-6"/>
             <AppInput :value="client.currency" @change="updateProp({ currency: $event })"
-                      label="Currency" field="currency" :errors="errors" class="col-sm-4"/>
+                      label="Moneda" field="currency" :errors="errors" class="col-sm-4"/>
             <AppInput :value="client.rate" @change="updateProp({ rate: $event })"
-                      label="Hourly rate" field="rate" :errors="errors" class="col-sm-4"/>
+                      label="Costo por hora" field="rate" :errors="errors" class="col-sm-4"/>
 
             <div class="col-12">
                 <h6>VAT</h6>
             </div>
             <AppInput :value="client.company_vat_no" @change="updateProp({ company_vat_no: $event })"
-                      label="Company VAT no" field="company_vat_no" :errors="errors" class="col-sm-8"/>
+                      label="IVA de la Empresa" field="company_vat_no" :errors="errors" class="col-sm-8"/>
             <AppCheckbox :value="client.has_vat" @input="updateProp({ has_vat: $event })"
-                         label="Apply VAT" field="has_vat" :errors="errors" class="col-sm-4"/>
+                         label="Aplicar IVA" field="has_vat" :errors="errors" class="col-sm-4"/>
 
             <div class="col-12">
-                <h6>Banking details</h6>
+                <h6>Detalles Bancarios</h6>
             </div>
             <AppSelect :value="client.bank_account"
                        track-by="id"
-                       label="Bank account"
+                       label="Cuenta Bancaria"
                        label-field="bank_name"
                        :options="bankAccounts || []"
                        @input="bankAccountChanged"
                        class="col-12"/>
         </div>
-        <div v-if="!client">Loading</div>
+        <div v-if="!client">Cargando</div>
 
         <div class="row mt-3 text-right" v-if="client">
             <div class="col-12">
                 <div v-if="!isNew">
-                    <button class="btn btn-outline-danger mr-2" @click="deleteClient(client.id)">Delete</button>
+                    <button class="btn btn-outline-danger mr-2" @click="deleteClient(client.id)">Eliminar</button>
                     <button class="btn btn-primary"
-                            @click="$emit('done')">Done
+                            @click="$emit('done')">Hecho
                     </button>
                 </div>
                 <button v-else class="btn btn-primary ml-2"
                         :disabled="loading"
-                        @click="createClient">Create
+                        @click="createClient">Crear
                 </button>
             </div>
         </div>
@@ -120,7 +120,7 @@ export default {
 
       this.$store.dispatch('clients/updateClient', props)
         .then(() => {
-          NotificationService.success('Updated');
+          NotificationService.success('Actualizado');
         })
         .catch(err => this.errors.set(err.errors));
     },
@@ -149,10 +149,10 @@ export default {
         });
     },
     async deleteClient(clientId) {
-      const confirmed = await this.$bvModal.msgBoxConfirm(`Delete client ${this.client.company_name}?`, {
-        okTitle: 'Delete',
+      const confirmed = await this.$bvModal.msgBoxConfirm(`¿Eliminar cliente ${this.client.company_name}?`, {
+        okTitle: 'Eliminar',
         okVariant: 'danger',
-        cancelTitle: 'Dismiss',
+        cancelTitle: 'Cancelar',
         cancelVariant: 'btn-link',
         contentClass: 'bg-base dp--24',
       });
@@ -160,7 +160,7 @@ export default {
         this.$emit('done');
         await this.$store.dispatch('clients/deleteClient', clientId);
         try {
-          NotificationService.success('Deleted');
+          NotificationService.success('Eliminado');
         } catch (err) {
           NotificationService.error(err.message);
         }

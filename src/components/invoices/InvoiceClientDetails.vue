@@ -2,14 +2,14 @@
     <div>
         <div>
             <ClientSelector :value="invoice.client_name" btn-class="font-weight-bold" @selected="clientSelected"/>
-            <i class="material-icons md-18 ml-2 pointer d-print-none" v-if="invoice.client" @click="editClient">edit</i>
+            <i class="material-icons md-18 ml-2 pointer d-print-none" v-if="invoice.client" @click="editClient">editar</i>
         </div>
         <AppEditable :value="invoice.client_address"
                      suffix=", "
-                     placeholder="Address"
+                     placeholder="Dirección"
                      @change="updateProp({ client_address: $event })"/>
         <AppEditable :value="invoice.client_postal_code"
-                     placeholder="Postal code"
+                     placeholder="Código Postal"
                      class="break-line"
                      @change="updateProp({ client_postal_code: $event })"/>
         <AppError :errors="errors" field="client_address"/>
@@ -17,39 +17,39 @@
 
         <AppEditable :value="invoice.client_city"
                      suffix=", "
-                     placeholder="City"
+                     placeholder="Ciudad"
                      @change="updateProp({ client_city: $event })"/>
         <AppEditable :value="invoice.client_county"
                      suffix=", "
-                     placeholder="County/State"
+                     placeholder="Estado"
                      @change="updateProp({ client_county: $event })"/>
         <AppEditable :value="invoice.client_country"
-                     placeholder="Country"
+                     placeholder="País"
                      class="break-line"
                      @change="updateProp({ client_country: $event })"/>
         <AppError :errors="errors" field="client_city"/>
         <AppError :errors="errors" field="client_county"/>
         <AppError :errors="errors" field="client_country"/>
 
-        <span :class="{'d-print-none': !invoice.client_reg_no }">Reg no: </span>
+        <span :class="{'d-print-none': !invoice.client_reg_no }">RFC: </span>
         <AppEditable :value="invoice.client_reg_no"
                      :errors="errors"
                      field="client_reg_no"
-                     placeholder="Enter reg no"
+                     placeholder="Escribe el RFC"
                      class="break-line"
                      @change="updateProp({ client_reg_no: $event })"/>
-        <span :class="{'d-print-none': !invoice.client_vat_no }">VAT no: </span>
+        <span :class="{'d-print-none': !invoice.client_vat_no }">Teléfono: </span>
         <AppEditable :value="invoice.client_vat_no"
                      :errors="errors"
                      field="client_vat_no"
-                     placeholder="Enter vat no"
+                     placeholder="Escribe un teléfono de contacto"
                      class="break-line"
                      @change="updateProp({ client_vat_no: $event })"/>
         <AppEditable :value="invoice.client_email"
                      :errors="errors"
                      field="client_email"
                      class="break-line"
-                     placeholder="Client's email"
+                     placeholder="Correo electrónico del cliente"
                      @change="updateProp({ client_email: $event })"/>
     </div>
 </template>
@@ -93,7 +93,7 @@ export default {
         client_reg_no: client.company_reg_no,
         client_vat_no: client.company_vat_no,
         client_email: client.invoice_email,
-        currency: client.currency || 'USD',
+        currency: client.currency || 'MXN',
         vat_rate: client.has_vat ? this.team.vat_rate : 0,
         bank_name: client.bank_account ? client.bank_account.bank_name : null,
         bank_account_no: client.bank_account ? client.bank_account.account_no : null,

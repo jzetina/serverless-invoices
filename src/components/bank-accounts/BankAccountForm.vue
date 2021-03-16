@@ -2,19 +2,19 @@
     <div>
         <div class="row">
             <div class="col-12">
-                <h4>Bank account</h4>
+                <h4>Cuenta Bancaria</h4>
             </div>
         </div>
         <div v-if="bankAccount" class="row">
             <AppInput :value="bankAccount.bank_name"
                       @change="updateProp({ bank_name: $event })"
-                      label="Bank Name"
+                      label="Banco"
                       field="bank_name"
                       :errors="errors"
                       class="col-sm-10"/>
             <AppInput :value="bankAccount.account_no"
                       @change="updateProp({ account_no: $event })"
-                      label="Account no"
+                      label="Número de cuenta"
                       field="account_no"
                       :errors="errors"
                       class="col-12"/>
@@ -22,18 +22,18 @@
 
         <div v-else class="row">
             <div class="col-12 pt-3">
-                <p>Loading..</p>
+                <p>Cargando..</p>
             </div>
         </div>
 
         <div class="row mt-3 text-right">
             <div class="col-12">
                 <button v-if="!isNew" class="btn btn-primary"
-                        @click="$emit('done')">Done
+                        @click="$emit('done')">Hecho
                 </button>
                 <button v-if="isNew" class="btn btn-primary ml-2"
                         :disabled="loading"
-                        @click="createBankAccount">Create
+                        @click="createBankAccount">Crear
                 </button>
             </div>
         </div>

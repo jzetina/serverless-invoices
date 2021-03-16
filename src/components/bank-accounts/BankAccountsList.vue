@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div v-if="!bankAccounts">Loading</div>
+    <div v-if="!bankAccounts">Cargando</div>
     <div v-else-if="bankAccounts && bankAccounts.length > 0">
       <table class="table table-hover">
         <thead>
         <tr>
-          <th>Account no.</th>
-          <th>Bank</th>
+          <th>Número de cuenta</th>
+          <th>Banco</th>
           <th class="text-right"></th>
         </tr>
         </thead>
@@ -24,11 +24,11 @@
         </tr>
         </tbody>
       </table>
-      <button class="btn btn-sm btn-link" @click="createNewAccount">Add bank account</button>
+      <button class="btn btn-sm btn-link" @click="createNewAccount">Añadir cuenta bancaria</button>
     </div>
     <EmptyState v-else>
       <template v-slot>
-        <button class="btn btn-sm btn-link" @click="createNewAccount">Add bank account</button>
+        <button class="btn btn-sm btn-link" @click="createNewAccount">Añadir cuenta bancaria</button>
       </template>
     </EmptyState>
   </div>

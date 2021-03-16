@@ -4,28 +4,28 @@
             <AppEditable :value="row.item"
                          :errors="errors"
                          :field="`rows.${index}.item`"
-                         placeholder="Enter item"
+                         placeholder="Añade un producto/servicio"
                          @change="updateProp({ item: $event })"/>
         </td>
         <td>
             <AppEditable :value="row.quantity"
                          :errors="errors"
                          :field="`rows.${index}.quantity`"
-                         placeholder="Enter quantity"
+                         placeholder="Añade la cantidad"
                          @change="updateProp({ quantity: $event })"/>
         </td>
         <td>
             <AppEditable :value="row.unit"
                          :errors="errors"
                          :field="`rows.${index}.unit`"
-                         placeholder="Enter unit"
+                         placeholder="Añade la unidad (pza, archivo, kg, etc)"
                          @change="updateProp({ unit: $event })"/>
         </td>
         <td>
             <AppEditable :value="row.price | currency"
                          :errors="errors"
                          :field="`rows.${index}.price`"
-                         placeholder="Enter price"
+                         placeholder="Añade el precio unitario"
                          @change="updateProp({ price: $event })"/>
         </td>
         <td class="text-right position-relative">

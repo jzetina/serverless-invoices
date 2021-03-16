@@ -2,15 +2,15 @@
     <BModal v-model="isOpen"
             centered
             hide-footer
-            title="Import data"
+            title="Importar datos"
             size="md"
             content-class="bg-base dp--24 text-center">
         <p>
-            <AppFileInput @selected="onSelected" button-text="Select import file"/>
+            <AppFileInput @selected="onSelected" button-text="Selecciona archivo de importación"/>
             <AppError :errors="errors" field="file"/>
         </p>
         <p>
-            <small>Your current data will be erased and overwritten with the imported data!</small>
+            <small>¡Tus datos actuales se eliminarán y se reemplazarán con los datos importados!</small>
         </p>
     </BModal>
 </template>
